@@ -6,9 +6,9 @@ export async function validateLoginController(
   reply: FastifyReply
 ) {
   try {
-    const { userName, password, type } = request.body as any;
+    const { userName, password } = request.body as any;
 
-    const { token } = await validateLoginService(userName, password, type);
+    const { token } = await validateLoginService(userName, password);
 
     reply.code(200).send({ token });
   } catch (error: any) {
